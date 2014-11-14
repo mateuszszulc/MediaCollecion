@@ -1,36 +1,30 @@
 package pl.mszulc;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import com.google.common.collect.Lists;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
+import java.util.List;
 
 import static org.testng.Assert.*;
 
 public class SimpleMediaCollectionTest {
 
-    @BeforeMethod
-    public void setUp() throws Exception {
-
-    }
-
-    @AfterMethod
-    public void tearDown() throws Exception {
-
-    }
-
     @Test
     public void testAddMedia() throws Exception {
         MediaCollection mc = new SimpleMediaCollection();
+
+        List<String> titles = Arrays.asList("Esdf","Fdupa","Casdf","Alama","Dsdf","Basf");
+
+        for (int i = 0 ; i < titles.size() ; i++) {
+            Media m1 = new Media();
+            m1.setEan((long) i);
+            m1.setTitle(titles.get(i));
+            mc.addMedia(m1);
+        }
+
+        //mc.getMediaPaged(1,10);
+        mc.getMediaPagedSortedByTitle(1,10);
         mc.addMedia(new Media());
-    }
-
-    @Test
-    public void testRemoveMedia() throws Exception {
-
-    }
-
-    @Test
-    public void testRemoveMedia1() throws Exception {
-
     }
 }

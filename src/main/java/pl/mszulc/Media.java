@@ -1,6 +1,13 @@
 package pl.mszulc;
 
-public class Media {
+public class Media /*implements Comparable<Media>*/ {
+
+
+    //public int compareTo(Media o) {
+    //    String oString = o.getTitle();
+    //    return title.compareTo(oString);
+    //    //return oString.compareTo(title);
+    //}
 
     public enum MediaType {
         CD, DVD
